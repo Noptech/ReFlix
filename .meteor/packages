@@ -9,4 +9,5 @@ less
 nemo64:bootstrap
 accounts-password
 ian:accounts-ui-bootstrap-3
-gildof:themoviedb
+aldeed:collection2
+aldeed:simple-schema
