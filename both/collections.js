@@ -52,10 +52,14 @@ Schema.Media = new SimpleSchema({
 		type: String,
 		optional: false
 	},
-  isSeries: { //FK to mediaTypes
+  isSeries: { //true = TV series, false = movie
     type: Boolean,
     optional: false,
     defaultValue: false
+  },
+  tmdbId: {
+    type: String,
+    optional: true
   }
 });
 
@@ -94,3 +98,16 @@ Schema.Recommendations = new SimpleSchema({
 });
 
 Recommendations.attachSchema(Schema.Recommendations);
+
+
+Media.allow({
+  insert: function(userId, doc) {
+    return true; // TODO
+  },
+  update: function(userId, doc) {
+    return true; // TODO
+  },
+  remove: function(userId, doc) {
+    return true; // TODO
+  }
+});

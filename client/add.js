@@ -12,6 +12,19 @@ Template.add.events({
         Session.set('searchResults', response);
       }
     });
+  },
+  'click .addMedia': function(event) {
+    var dataset = event.target.dataset;
+    console.log(dataset.tmdbid);
+    console.log(dataset.title);
+    Media.insert({
+      title: dataset.title,
+      tmdbId: dataset.tmdbid,
+      isSeries: false
+    }, function(err, success) {
+      if (err) sAlert.error(err);
+      else sAlert.info(dataset.title + ' was added');
+    });
   }
 });
 

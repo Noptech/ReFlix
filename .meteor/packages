@@ -7,13 +7,22 @@
 meteor-platform
 less
 nemo64:bootstrap
+
+msavin:mongol
+
 accounts-password
 ian:accounts-ui-bootstrap-3
+
 aldeed:collection2
 aldeed:simple-schema
+
 iron:router
 zimme:active-route
+
 service-configuration
+
+juliancwirko:s-alert
+juliancwirko:s-alert-genie
 
 #TMDB + dependencies
 rkstar:tmdb

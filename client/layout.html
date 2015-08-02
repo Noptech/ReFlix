@@ -30,6 +30,7 @@
         {{> yield}}
       </div>
     </div>
+    {{> sAlert }}
     <script>
       $(document).on('click.nav','.navbar-collapse.in',function(e) {
         if( $(e.target).is('a') || $(e.target).is('button')) {
@@ -40,8 +41,4 @@
       });
     </script>
   </body>
-</template>
-
-<template name="home">
-  <h1>Home</h1>
 </template>
