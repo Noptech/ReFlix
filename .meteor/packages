@@ -11,3 +11,5 @@ accounts-password
 ian:accounts-ui-bootstrap-3
 aldeed:collection2
 aldeed:simple-schema
+iron:router
+zimme:active-route
