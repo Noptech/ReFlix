@@ -13,3 +13,10 @@ aldeed:collection2
 aldeed:simple-schema
 iron:router
 zimme:active-route
+service-configuration
+
+#TMDB + dependencies
+rkstar:tmdb
+http
+underscore
+momentjs:moment
