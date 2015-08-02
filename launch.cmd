@@ -1,0 +1,1 @@
+meteor run --settings=.\server\lib\settings.json
