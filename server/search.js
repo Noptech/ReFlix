@@ -1,5 +1,3 @@
-var Future = Npm.require('fibers/future');
-
 Meteor.methods({
   search: function(queryString){
     var fut = new Future();

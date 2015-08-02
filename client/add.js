@@ -23,7 +23,7 @@ Template.add.events({
       isSeries: false
     }, function(err, success) {
       if (err) sAlert.error(err);
-      else sAlert.info(dataset.title + ' was added');
+      else sAlert.info('"' + dataset.title + '" was added');
     });
   }
 });
