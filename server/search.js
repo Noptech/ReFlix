@@ -1,11 +1,15 @@
+var Future = Npm.require('fibers/future');
+
 Meteor.methods({
   search: function(queryString){
+    var fut = new Future();
     tmdb.search('movie', queryString, function(err, response) {
       if (err) {
-        console.log(err);
+        fut.throw(err);
       } else {
-        console.log(response);
+        fut.return(response);
       }
     });
+    return fut.wait();
   }
 });

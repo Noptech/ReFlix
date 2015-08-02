@@ -3,7 +3,9 @@
     <input type="text" class="form-control" name="queryString">
     <button type="submit" class="btn btn-primary">Search</button>
   </form>
-  {{#each searchResults}}
-
+  {{#each searchResults.results}}
+    <h2>{{title}} - {{release_date}}</h2>
+    <img src="http://image.tmdb.org/t/p/w396{{poster_path}}">
+    <p>{{overview}}</p>
   {{/each}}
 </template>
