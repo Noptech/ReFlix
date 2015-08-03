@@ -10,7 +10,9 @@
         <a class="addMedia clickable" data-tmdbid="{{id}}" data-title="{{title}}">Add</a>
       {{/if}}
     </h2>
-    <img src="http://image.tmdb.org/t/p/w396{{poster_path}}">
+    {{#if poster_path}}
+      <img src="http://image.tmdb.org/t/p/w396{{poster_path}}">
+    {{/if}}
     <p>{{overview}}</p>
   {{/each}}
 </template>

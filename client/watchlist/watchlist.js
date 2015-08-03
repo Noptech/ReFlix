@@ -1,9 +1,7 @@
 Template.watchlist.helpers({
   mediaItems: function() {
     if (!Meteor.user()) return;
-    var watchlist = Watchlists.findOne({userId: Meteor.user()._id});
-    Session.set('watchlistId', watchlist._id);
-    return watchlist ? watchlist.getMedia() : [];
+    return Meteor.user().getWatchlist().getMedia();
   }
 });
 
@@ -11,6 +9,16 @@ Template.watchlist.events({
   'click .removeFromList': function(event) {
     if (!Meteor.user()) return;
     var mediaId = event.target.dataset.mediaid;
-    Watchlists.update(Session.get('watchlistId'), {$pull: {media: mediaId}});
+    var watchlist = Meteor.user().getWatchlist();
+    Watchlists.update(watchlist._id, {$pull: {media: mediaId}});
+  },
+  'click .toggleAvailability': function(event) {
+    var dataset = event.target.dataset;
+    var type = dataset.type;
+    if (type === 'netflix') {
+      Media.update(dataset.mediaid, {$set: {availableNetflix: !dataset.currentavailability}});
+    } else if (type === 'torrent') {
+      Media.update(dataset.mediaid, {$set: {availableTorrent: !dataset.currentavailability}});
+    }
   }
 });

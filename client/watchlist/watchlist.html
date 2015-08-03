@@ -1,7 +1,27 @@
 <template name="watchlist">
   <ul>
     {{#each mediaItems}}
-      <li>{{title}} <button class="removeFromList" data-mediaid="{{_id}}">Remove</button></li>
+      <li>
+        {{title}} <button class="btn btn-danger removeFromList" data-mediaid="{{_id}}">Remove</button>
+        <button class="btn btn-primary toggleAvailability" data-type="netflix" data-currentavailability="{{availableNetflix}}" data-mediaid="{{_id}}">
+          Netflix:
+          {{#if availableNetflix}}
+            Yes
+          {{/if}}
+          {{#unless availableNetflix}}
+            No
+          {{/unless}}
+        </button>
+        <button class="btn btn-primary toggleAvailability" data-type="torrent" data-currentAvailability="{{availableTorrent}}" data-mediaid="{{_id}}">
+          Torrent:
+          {{#if availableTorrent}}
+            Yes
+          {{/if}}
+          {{#unless availableTorrent}}
+            No
+          {{/unless}}
+        </button>
+      </li>
     {{/each}}
   </ul>
 </template>

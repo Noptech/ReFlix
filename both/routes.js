@@ -1,7 +1,11 @@
 Router.map(function() {
   this.route('home');
   this.route('add');
-  this.route('watchlist');
+  this.route('watchlist', {
+    waitOn: function() {
+      return Meteor.subscribe('media');
+    }
+  });
   this.route('root', {
     path: '/',
     action: function() {

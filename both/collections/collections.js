@@ -60,8 +60,18 @@ Schema.Media = new SimpleSchema({
   },
   tmdbId: {
     type: String,
-    optional: true,
+    optional: false,
     unique: true
+  },
+  availableNetflix: {
+    type: Boolean,
+    optional: false,
+    defaultValue: false
+  },
+  availableTorrent: {
+    type: Boolean,
+    optional: false,
+    defaultValue: false
   }
 });
 
