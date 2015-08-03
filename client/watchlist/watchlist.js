@@ -8,25 +8,22 @@ Template.watchlist.helpers({
 Template.watchlist.events({
   'click .removeFromList': function(event) {
     if (!Meteor.user()) return;
-    var mediaId = event.target.dataset.mediaid;
     var watchlist = Meteor.user().getWatchlist();
-    Watchlists.update(watchlist._id, {$pull: {media: mediaId}});
+    Watchlists.update(watchlist._id, {$pull: {media: this._id}});
   },
-  'click .toggleAvailability': function(event) {
-    var dataset = event.target.dataset;
-    var type = dataset.type;
+  'click .toggleAvailability': function() {
+    var type = event.target.dataset.type;
     if (type === 'netflix') {
-      Media.update(dataset.mediaid, {$set: {availableNetflix: !dataset.currentavailability}});
+      Media.update(this._id, {$set: {availableNetflix: !this.availableNetflix}});
     } else if (type === 'torrent') {
-      Media.update(dataset.mediaid, {$set: {availableTorrent: !dataset.currentavailability}});
+      Media.update(this._id, {$set: {availableTorrent: !this.availableTorrent}});
     }
   },
-  'click .recommend': function(event) {
-    var dataset = event.target.dataset;
+  'click .recommend': function() {
     Recommendations.insert({
       receiverId: Meteor.user()._id,
-      media: dataset.mediaid
+      media: this._id
     });
-    sAlert.info('You recommended "' + dataset.title + '"');
+    sAlert.info('You recommended "' + this.title + '"');
   }
 });

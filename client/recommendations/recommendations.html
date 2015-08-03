@@ -1,7 +1,12 @@
 <template name="recommendations">
   <ul>
   {{#each recommendations}}
-    <li>{{recommender.username}} recommends {{recommendationMedia.title}}</li>
+    <li>{{recommender.username}} recommends
+      <a href="media/{{recommendationMedia._id}}">{{recommendationMedia.title}}</a>
+      {{#if recommendationMedia.posterPath}}
+        <img src="http://image.tmdb.org/t/p/w396{{recommendationMedia.posterPath}}">
+      {{/if}}
+    </li>
   {{/each}}
   </ul>
 </template>

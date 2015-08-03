@@ -14,20 +14,20 @@ Template.add.events({
     });
   },
   'click .addMedia': function(event) {
-    var dataset = event.target.dataset;
     var userWatchlist = Watchlists.findOne({userId: Meteor.user()._id});
     var userWatchlistId = userWatchlist ? userWatchlist._id
                           : Watchlists.insert({userId: Meteor.user()._id, media: []});
-    var existingMedia = Media.findOne({tmdbId: dataset.tmdbid});
+    var existingMedia = Media.findOne({tmdbId: this.id});
     var mediaId = existingMedia ? existingMedia._id
                                 : Media.insert({
-                                    tmdbId: dataset.tmdbid,
-                                    title: dataset.title,
+                                    tmdbId: this.id,
+                                    title: this.title,
                                     isSeries: false,
-                                    posterPath: dataset.posterpath
+                                    posterPath: this.poster_path,
+                                    releaseYear: new Date(this.release_date).getFullYear()
                                   });
     Watchlists.update(userWatchlistId, {$addToSet: {media: mediaId}});
-    sAlert.info('"' + dataset.title + '" added to watch list');
+    sAlert.info('"' + this.title + '" added to watch list');
   }
 });
 

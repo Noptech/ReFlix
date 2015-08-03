@@ -53,6 +53,10 @@ Schema.Media = new SimpleSchema({
 		type: String,
 		optional: false
 	},
+  releaseYear: {
+    type: Number,
+    optional: true
+  },
   isSeries: { //true = TV series, false = movie
     type: Boolean,
     optional: false,

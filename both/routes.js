@@ -24,6 +24,15 @@ Router.map(function() {
       Router.go('/home');
     }
   });
+  this.route('media', {
+    path: '/media/:_id',
+    waitOn: function() {
+      return subs.subscribe('media');
+    },
+    data: function() {
+      return Media.findOne(this.params._id);
+    }
+  })
 });
 
 Router.configure({

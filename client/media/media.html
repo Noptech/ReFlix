@@ -1,0 +1,10 @@
+<template name="media">
+  <div class="row">
+    <h1>{{title}} - {{releaseYear}}</h1>
+  </div>
+  <div class="row">
+    {{#if posterPath}}
+      <img src="http://image.tmdb.org/t/p/w396{{posterPath}}">
+    {{/if}}
+  </div>
+</template>
