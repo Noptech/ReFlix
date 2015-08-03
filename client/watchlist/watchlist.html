@@ -1,0 +1,7 @@
+<template name="watchlist">
+  <ul>
+    {{#each mediaItems}}
+      <li>{{title}} <button class="removeFromList" data-mediaid="{{_id}}">Remove</button></li>
+    {{/each}}
+  </ul>
+</template>

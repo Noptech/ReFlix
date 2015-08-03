@@ -13,3 +13,7 @@ Meteor.publish('ratings', function() {
 Meteor.publish('recommendations', function() {
   return Recommendations.find();
 });
+
+Meteor.publish('watchlists', function() {
+  return Watchlists.find();
+});

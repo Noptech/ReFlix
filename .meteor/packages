@@ -24,6 +24,8 @@ service-configuration
 juliancwirko:s-alert
 juliancwirko:s-alert-genie
 
+dburles:collection-helpers
+
 #TMDB + dependencies
 rkstar:tmdb
 http

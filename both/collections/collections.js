@@ -1,6 +1,7 @@
 Media = new Meteor.Collection('media');
 Ratings = new Meteor.Collection('ratings');
 Recommendations = new Meteor.Collection('recommendations');
+Watchlists = new Meteor.Collection('watchlists');
 
 Schema = {};
 
@@ -59,7 +60,8 @@ Schema.Media = new SimpleSchema({
   },
   tmdbId: {
     type: String,
-    optional: true
+    optional: true,
+    unique: true
   }
 });
 
@@ -99,8 +101,30 @@ Schema.Recommendations = new SimpleSchema({
 
 Recommendations.attachSchema(Schema.Recommendations);
 
+Schema.Watchlists = new SimpleSchema({
+  userId: {
+    type: String
+  },
+  media: {
+    type: [String] //media ID
+  }
+});
+
+Watchlists.attachSchema(Schema.Watchlists);
 
 Media.allow({
+  insert: function(userId, doc) {
+    return true; // TODO
+  },
+  update: function(userId, doc) {
+    return true; // TODO
+  },
+  remove: function(userId, doc) {
+    return true; // TODO
+  }
+});
+
+Watchlists.allow({
   insert: function(userId, doc) {
     return true; // TODO
   },

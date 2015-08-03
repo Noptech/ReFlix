@@ -19,6 +19,9 @@
             <ul class="nav navbar-nav">
               <li class="{{isActiveRoute 'home'}}"><a href="/home">Home</a></li>
               <li class="{{isActiveRoute 'add'}}"><a href="/add">Add</a></li>
+              {{#if currentUser}}
+                <li class="{{isActiveRoute 'watchlist'}}"><a href="/watchlist">My watchlist</a></li>
+              {{/if}}
             </ul>
             <ul class="nav navbar-nav navbar-right">{{> loginButtons}}</ul>
           </div>
