@@ -5,30 +5,36 @@
 # but you can also edit it by hand.
 
 meteor-platform
+
+# Styling
 less
 nemo64:bootstrap
 
+# Tools
 msavin:mongol
+service-configuration
 
+# Accounts
 accounts-password
 ian:accounts-ui-bootstrap-3
 
+# Collections
 aldeed:collection2
 aldeed:simple-schema
+reywood:publish-composite
+meteorhacks:subs-manager
+dburles:collection-helpers
 
+# Routing
 iron:router
 zimme:active-route
 
-service-configuration
-
+# Notifications / spinner
 juliancwirko:s-alert
 juliancwirko:s-alert-genie
-
-dburles:collection-helpers
-meteorhacks:subs-manager
 dispatch:spinner
 
-#TMDB + dependencies
+# TMDB + dependencies
 rkstar:tmdb
 http
 underscore

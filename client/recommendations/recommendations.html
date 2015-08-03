@@ -1,0 +1,7 @@
+<template name="recommendations">
+  <ul>
+  {{#each recommendations}}
+    <li>{{recommender.username}} recommends {{recommendationMedia.title}}</li>
+  {{/each}}
+  </ul>
+</template>

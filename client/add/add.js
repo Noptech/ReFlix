@@ -15,8 +15,6 @@ Template.add.events({
   },
   'click .addMedia': function(event) {
     var dataset = event.target.dataset;
-    console.log(dataset.tmdbid);
-    console.log(dataset.title);
     var userWatchlist = Watchlists.findOne({userId: Meteor.user()._id});
     var userWatchlistId = userWatchlist ? userWatchlist._id
                           : Watchlists.insert({userId: Meteor.user()._id, media: []});
@@ -25,7 +23,8 @@ Template.add.events({
                                 : Media.insert({
                                     tmdbId: dataset.tmdbid,
                                     title: dataset.title,
-                                    isSeries: false
+                                    isSeries: false,
+                                    posterPath: dataset.posterpath
                                   });
     Watchlists.update(userWatchlistId, {$addToSet: {media: mediaId}});
     sAlert.info('"' + dataset.title + '" added to watch list');

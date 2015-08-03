@@ -12,6 +12,12 @@ Router.map(function() {
       return subs.subscribe('media') && subs.subscribe('watchlists');
     }
   });
+  this.route('recommendations', {
+    waitOn: function() {
+      return subs.subscribe('watchlists') &&
+             subs.subscribe('recommendationsWithMedia');
+    }
+  });
   this.route('root', {
     path: '/',
     action: function() {

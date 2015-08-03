@@ -7,7 +7,12 @@
     <h2>
       {{title}} - {{release_date}}
       {{#if currentUser}}
-        <a class="addMedia clickable" data-tmdbid="{{id}}" data-title="{{title}}">Add</a>
+        <a class="addMedia clickable"
+           data-tmdbid="{{id}}"
+           data-posterpath="{{poster_path}}"
+           data-title="{{title}}">
+          Add
+        </a>
       {{/if}}
     </h2>
     {{#if poster_path}}

@@ -63,6 +63,10 @@ Schema.Media = new SimpleSchema({
     optional: false,
     unique: true
   },
+  posterPath: {
+    type: String,
+    optional: true
+  },
   availableNetflix: {
     type: Boolean,
     optional: false,
@@ -106,6 +110,10 @@ Schema.Recommendations = new SimpleSchema({
   receiverId: {
     type: String,
     optional: false
+  },
+  media: {
+    type: String,
+    optional: false
   }
 });
 
@@ -121,27 +129,3 @@ Schema.Watchlists = new SimpleSchema({
 });
 
 Watchlists.attachSchema(Schema.Watchlists);
-
-Media.allow({
-  insert: function(userId, doc) {
-    return true; // TODO
-  },
-  update: function(userId, doc) {
-    return true; // TODO
-  },
-  remove: function(userId, doc) {
-    return true; // TODO
-  }
-});
-
-Watchlists.allow({
-  insert: function(userId, doc) {
-    return true; // TODO
-  },
-  update: function(userId, doc) {
-    return true; // TODO
-  },
-  remove: function(userId, doc) {
-    return true; // TODO
-  }
-});

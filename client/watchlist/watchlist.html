@@ -2,6 +2,9 @@
   <ul>
     {{#each mediaItems}}
       <li>
+        {{#if posterPath}}
+          <img src="http://image.tmdb.org/t/p/w396{{posterPath}}">
+        {{/if}}
         {{title}} <button class="btn btn-danger removeFromList" data-mediaid="{{_id}}">Remove</button>
         <button class="btn btn-primary toggleAvailability" data-type="netflix" data-currentavailability="{{availableNetflix}}" data-mediaid="{{_id}}">
           Netflix:
@@ -21,6 +24,7 @@
             No
           {{/unless}}
         </button>
+        <button class="btn btn-primary recommend" data-mediaid="{{_id}}">Recommend</button>
       </li>
     {{/each}}
   </ul>

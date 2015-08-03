@@ -20,5 +20,12 @@ Template.watchlist.events({
     } else if (type === 'torrent') {
       Media.update(dataset.mediaid, {$set: {availableTorrent: !dataset.currentavailability}});
     }
+  },
+  'click .recommend': function(event) {
+    var dataset = event.target.dataset;
+    Recommendations.insert({
+      receiverId: Meteor.user()._id,
+      media: dataset.mediaid
+    });
   }
 });

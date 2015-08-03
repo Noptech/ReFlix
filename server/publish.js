@@ -17,3 +17,21 @@ Meteor.publish('recommendations', function() {
 Meteor.publish('watchlists', function() {
   return Watchlists.find();
 });
+
+Meteor.publishComposite('recommendationsWithMedia', {
+  find: function() {
+    return Recommendations.find({receiverId: this.userId});
+  },
+  children: [
+    {
+      find: function(recommendation) {
+        return Media.find(recommendation.media);
+      }
+    },
+    {
+      find: function(recommendation) {
+        return Meteor.users.find({_id: recommendation.recommenderId});
+      }
+    }
+  ]
+});
