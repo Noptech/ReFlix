@@ -26,6 +26,7 @@ juliancwirko:s-alert-genie
 
 dburles:collection-helpers
 meteorhacks:subs-manager
+dispatch:spinner
 
 #TMDB + dependencies
 rkstar:tmdb
