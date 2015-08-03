@@ -34,5 +34,8 @@ Template.add.events({
 Template.add.helpers({
   searchResults: function() {
     return Session.get('searchResults');
+  },
+  getYear: function(date) {
+    return new Date(date).getFullYear();
   }
 });

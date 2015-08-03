@@ -5,7 +5,7 @@
   </form>
   {{#each searchResults.results}}
     <h2>
-      {{title}} - {{release_date}}
+      {{title}} - {{getYear release_date}}
       {{#if currentUser}}
         <a class="addMedia clickable"
            data-tmdbid="{{id}}"

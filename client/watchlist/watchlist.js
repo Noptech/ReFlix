@@ -27,5 +27,6 @@ Template.watchlist.events({
       receiverId: Meteor.user()._id,
       media: dataset.mediaid
     });
+    sAlert.info('You recommended "' + dataset.title + '"');
   }
 });
