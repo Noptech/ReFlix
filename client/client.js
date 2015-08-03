@@ -1,9 +1,7 @@
 Tracker.autorun(function () {
   Meteor.subscribe('userData');
-  Meteor.subscribe('media');
   Meteor.subscribe('ratings');
   Meteor.subscribe('recommendations');
-  Meteor.subscribe('watchlists');
 });
 
 Accounts.ui.config({

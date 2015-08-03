@@ -1,9 +1,15 @@
+var subs = new SubsManager();
+
 Router.map(function() {
   this.route('home');
-  this.route('add');
+  this.route('add', {
+    waitOn: function() {
+      return subs.subscribe('watchlists');
+    }
+  });
   this.route('watchlist', {
     waitOn: function() {
-      return Meteor.subscribe('media');
+      return subs.subscribe('media') && subs.subscribe('watchlists');
     }
   });
   this.route('root', {
