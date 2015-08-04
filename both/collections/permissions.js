@@ -33,3 +33,16 @@ Recommendations.allow({
     return true; // TODO
   }
 });
+
+Ratings.allow({
+  insert: function(userId, doc) {
+    return true; // TODO
+  },
+  update: function(userId, doc) {
+    return true; // TODO
+  },
+  remove: function(userId, doc) {
+    return true; // TODO
+  }
+});
+

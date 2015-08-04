@@ -27,7 +27,7 @@ Router.map(function() {
   this.route('media', {
     path: '/media/:_id',
     waitOn: function() {
-      return subs.subscribe('media');
+      return subs.subscribe('media') && subs.subscribe('ratings');
     },
     data: function() {
       return Media.findOne(this.params._id);

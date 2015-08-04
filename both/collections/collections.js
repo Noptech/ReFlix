@@ -86,6 +86,10 @@ Schema.Media = new SimpleSchema({
 Media.attachSchema(Schema.Media);
 
 Schema.Ratings = new SimpleSchema({
+  media: {
+    type: String,
+    optional: false
+  },
   userId: {
     type: String,
     optional: false,
