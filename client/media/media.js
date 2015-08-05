@@ -1,15 +1,13 @@
 Template.media.helpers({
-
+  rating: function() {
+    var rating = Ratings.findOne({userId: Meteor.user()._id, media: this._id});
+    return rating ? rating.rating : false;
+  }
 });
 
 Template.media.events({
   'click .rateBtn': function(event) {
     var dataset = event.target.dataset;
-    console.log(dataset.rating);
-    Ratings.insert({
-      media: this._id,
-      rating: dataset.rating,
-      userId: Meteor.user()._id
-    });
+    Meteor.call('addRating', this._id, dataset.rating);
   }
 });

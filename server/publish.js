@@ -6,6 +6,21 @@ Meteor.publish('media', function() {
   return Media.find();
 });
 
+Meteor.publishComposite('mediaWithRating', function(mediaId) {
+  return {
+    find: function() {
+      return Media.find({_id: mediaId});
+    },
+    children: [
+      {
+        find: function(media) {
+          return Ratings.find({media: media._id, userId: this.userId});
+        }
+      }
+    ]
+  }
+});
+
 Meteor.publish('ratings', function() {
   return Ratings.find();
 });

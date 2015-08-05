@@ -1,6 +1,9 @@
 <template name="media">
   <div class="row">
     <h1>{{title}} - {{releaseYear}}</h1>
+    {{#if rating}}
+      <h2>Rating: {{rating}}</h2>
+    {{/if}}
   </div>
   <div class="row">
     {{#if posterPath}}
