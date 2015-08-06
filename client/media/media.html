@@ -1,8 +1,17 @@
 <template name="media">
   <div class="row">
     <h1>{{title}} - {{releaseYear}}</h1>
-    {{#if rating}}
-      <h2>Rating: {{rating}}</h2>
+    {{#if getRating}}
+      <h2>
+      {{#each ratingIndex}}
+        {{#if ratingGte .}}
+          <i class="glyphicon glyphicon-star"></i>
+        {{/if}}
+        {{#unless ratingGte .}}
+          <i class="glyphicon glyphicon-star-empty"></i>
+        {{/unless}}
+      {{/each}}
+      </h2>
     {{/if}}
   </div>
   <div class="row">
