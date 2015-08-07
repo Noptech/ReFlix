@@ -1,24 +1,16 @@
 Template.media.helpers({
-  getRating: function() {
-    var rating = Ratings.findOne({userId: Meteor.user()._id, media: this._id});
-    var ret = rating ? rating.rating : false;
-    console.log(ret);
-    if (ret) {
-      Session.set('rating', ret);
-    }
-    return ret;
-  },
   ratingIndex: function() {
     return [1,2,3];
   },
-  ratingGte: function(val) {
-    return Session.get('rating', 0) >= val;
+  getRating: function() {
+    return Ratings.findOne({media: this._id, userId: Meteor.user()._id});
   }
 });
 
 Template.media.events({
-  'click .rateBtn': function(event) {
+  'click .setRating': function(event) {
     var dataset = event.target.dataset;
-    Meteor.call('addRating', this._id, dataset.rating);
+    var mediaId = Template.parentData(0)._id;
+    Meteor.call('addRating', mediaId, dataset.rating);
   }
 });

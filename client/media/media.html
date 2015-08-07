@@ -1,33 +1,21 @@
 <template name="media">
   <div class="row">
     <h1>{{title}} - {{releaseYear}}</h1>
-    {{#if getRating}}
       <h2>
-      {{#each ratingIndex}}
-        {{#if ratingGte .}}
-          <i class="glyphicon glyphicon-star"></i>
-        {{/if}}
-        {{#unless ratingGte .}}
-          <i class="glyphicon glyphicon-star-empty"></i>
-        {{/unless}}
-      {{/each}}
+        <i data-rating="3"
+          class="clickable glyphicon glyphicon-star{{#if $lt 3 getRating.rating}}-empty{{/if}} setRating">
+        </i>
+        <i data-rating="2"
+          class="clickable glyphicon glyphicon-star{{#if $lt 2 getRating.rating}}-empty{{/if}} setRating">
+        </i>
+        <i data-rating="1"
+          class="clickable glyphicon glyphicon-star{{#if $lt 1 getRating.rating}}-empty{{/if}} setRating">
+        </i>
       </h2>
-    {{/if}}
   </div>
   <div class="row">
     {{#if posterPath}}
       <img src="http://image.tmdb.org/t/p/w396{{posterPath}}">
     {{/if}}
   </div>
-  <ul>
-    <li>
-      <button class="rateBtn" data-rating="1">1</button>
-    </li>
-    <li>
-      <button class="rateBtn" data-rating="2">2</button>
-    </li>
-    <li>
-      <button class="rateBtn" data-rating="3">3</button>
-    </li>
-  </ul>
 </template>

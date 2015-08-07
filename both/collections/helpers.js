@@ -5,6 +5,13 @@ Watchlists.helpers({
   }
 });
 
+Media.helpers({
+  getRating: function() {
+    var rating = Ratings.find({media: this._id, userId: Meteor.user()._id});
+    return rating ? rating : 0;
+  }
+});
+
 Meteor.users.helpers({
   getWatchlist: function() {
     var list = Watchlists.findOne({userId: Meteor.user()._id});
