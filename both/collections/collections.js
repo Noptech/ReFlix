@@ -63,7 +63,7 @@ Schema.Media = new SimpleSchema({
     defaultValue: false
   },
   tmdbId: {
-    type: String,
+    type: Number,
     optional: false,
     unique: true
   },

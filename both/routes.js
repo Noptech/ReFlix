@@ -4,7 +4,7 @@ Router.map(function() {
   this.route('home');
   this.route('add', {
     waitOn: function() {
-      return subs.subscribe('watchlists');
+      return subs.subscribe('watchlists') && subs.subscribe('media');
     }
   });
   this.route('watchlist', {

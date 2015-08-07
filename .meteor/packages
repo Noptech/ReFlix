@@ -13,6 +13,10 @@ nemo64:bootstrap
 # Tools
 msavin:mongol
 service-configuration
+meteorhacks:npm
+raix:handlebar-helpers
+reactive-var
+reactive-dict
 
 # Accounts
 accounts-password
@@ -24,8 +28,6 @@ aldeed:simple-schema
 reywood:publish-composite
 meteorhacks:subs-manager
 dburles:collection-helpers
-
-raix:handlebar-helpers
 
 # Routing
 iron:router

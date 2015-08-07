@@ -1,13 +1,5 @@
 <template name="watchlist">
-  <ul>
-    {{#each mediaItems}}
-      <li>
-        {{#if posterPath}}
-          <img src="http://image.tmdb.org/t/p/w396{{posterPath}}">
-        {{/if}}
-        <a href="media/{{_id}}">{{title}}</a>
-        <button class="btn btn-danger removeFromList">Remove</button>
-      </li>
-    {{/each}}
-  </ul>
+  {{#each mediaItems}}
+    {{> watchlistItem }}
+  {{/each}}
 </template>

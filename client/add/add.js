@@ -4,11 +4,8 @@ Template.add.events({
     var queryString = event.target.queryString.value;
     Meteor.call('search', queryString, function(err, response){
       if (err) {
-        console.log('err');
         console.log(err);
       } else {
-        console.log('response');
-        console.log(response);
         Session.set('searchResults', response);
       }
     });

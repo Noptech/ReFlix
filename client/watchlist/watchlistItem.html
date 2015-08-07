@@ -1,0 +1,17 @@
+<template name="watchlistItem">
+  <div class="row">
+    <h2>
+      <a href="media/{{_id}}">{{title}}</a>
+      <button class="btn btn-danger removeFromList">Remove</button>
+      <a href="http://imdb.com/title/{{movieData.imdb_id}}">IMDB</a>
+    </h2>
+    <div class="col-md-6">
+      {{#if posterPath}}
+        <img src="http://image.tmdb.org/t/p/w396{{posterPath}}">
+      {{/if}}
+    </div>
+    <div class="col-md-6">
+      {{movieData.overview}}
+    </div>
+  </div>
+</template>

@@ -1,15 +1,12 @@
 Watchlists.helpers({
   getMedia: function() {
     // TODO - refactor: https://dweldon.silvrback.com/common-mistakes
-    return Media.find({_id: {$in: this.media}});
+    var media = Media.find({_id: {$in: this.media}});
+    return media;
   }
 });
 
 Media.helpers({
-  getRating: function() {
-    var rating = Ratings.find({media: this._id, userId: Meteor.user()._id});
-    return rating ? rating : 0;
-  }
 });
 
 Meteor.users.helpers({
