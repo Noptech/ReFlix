@@ -25,6 +25,8 @@ reywood:publish-composite
 meteorhacks:subs-manager
 dburles:collection-helpers
 
+raix:handlebar-helpers
+
 # Routing
 iron:router
 zimme:active-route

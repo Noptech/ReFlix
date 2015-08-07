@@ -1,9 +1,7 @@
 Template.media.helpers({
-  ratingIndex: function() {
-    return [1,2,3];
-  },
   getRating: function() {
-    return Ratings.findOne({media: this._id, userId: Meteor.user()._id});
+    var rating = Ratings.findOne({media: this._id, userId: Meteor.user()._id});
+    return rating ? rating : {media: this._id, rating: 0};
   }
 });
 
@@ -12,5 +10,9 @@ Template.media.events({
     var dataset = event.target.dataset;
     var mediaId = Template.parentData(0)._id;
     Meteor.call('addRating', mediaId, dataset.rating);
+  },
+  'click .clearRating': function(event) {
+    var rating = Ratings.findOne({media: this._id, userId: Meteor.user()._id});
+    Ratings.remove(rating._id);
   }
 });

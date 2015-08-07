@@ -2,15 +2,18 @@
   <div class="row">
     <h1>{{title}} - {{releaseYear}}</h1>
       <h2>
-        <i data-rating="3"
-          class="clickable glyphicon glyphicon-star{{#if $lt 3 getRating.rating}}-empty{{/if}} setRating">
+        <i data-rating="1"
+          class="clickable glyphicon glyphicon-star{{#if $lt getRating.rating 1}}-empty{{/if}} setRating">
         </i>
         <i data-rating="2"
-          class="clickable glyphicon glyphicon-star{{#if $lt 2 getRating.rating}}-empty{{/if}} setRating">
+          class="clickable glyphicon glyphicon-star{{#if $lt getRating.rating 2}}-empty{{/if}} setRating">
         </i>
-        <i data-rating="1"
-          class="clickable glyphicon glyphicon-star{{#if $lt 1 getRating.rating}}-empty{{/if}} setRating">
+        <i data-rating="3"
+          class="clickable glyphicon glyphicon-star{{#if $lt getRating.rating 3}}-empty{{/if}} setRating">
         </i>
+        {{#if $gt getRating.rating 0}}
+          <i style="font-size: small;" class="clickable clearRating glyphicon glyphicon-remove"></i>
+        {{/if}}
       </h2>
   </div>
   <div class="row">
