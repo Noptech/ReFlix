@@ -14,5 +14,20 @@ Template.media.events({
   'click .clearRating': function(event) {
     var rating = Ratings.findOne({media: this._id, userId: Meteor.user()._id});
     Ratings.remove(rating._id);
+  },
+  'click .toggleAvailability': function() {
+    var type = event.target.dataset.type;
+    if (type === 'netflix') {
+      Media.update(this._id, {$set: {availableNetflix: !this.availableNetflix}});
+    } else if (type === 'torrent') {
+      Media.update(this._id, {$set: {availableTorrent: !this.availableTorrent}});
+    }
+  },
+  'click .recommend': function() {
+    Recommendations.insert({
+      receiverId: Meteor.user()._id,
+      media: this._id
+    });
+    sAlert.info('You recommended "' + this.title + '"');
   }
 });

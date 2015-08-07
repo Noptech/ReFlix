@@ -7,25 +7,6 @@
         {{/if}}
         <a href="media/{{_id}}">{{title}}</a>
         <button class="btn btn-danger removeFromList">Remove</button>
-        <button class="btn btn-primary toggleAvailability" data-type="netflix">
-          Netflix:
-          {{#if availableNetflix}}
-            Yes
-          {{/if}}
-          {{#unless availableNetflix}}
-            No
-          {{/unless}}
-        </button>
-        <button class="btn btn-primary toggleAvailability" data-type="torrent">
-          Torrent:
-          {{#if availableTorrent}}
-            Yes
-          {{/if}}
-          {{#unless availableTorrent}}
-            No
-          {{/unless}}
-        </button>
-        <button class="btn btn-primary recommend">Recommend</button>
       </li>
     {{/each}}
   </ul>
